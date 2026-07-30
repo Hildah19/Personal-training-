@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You ❤️</title>
+
+<style>
+
+body{
+margin:0;
+background:#fff0f5;
+font-family:Georgia,serif;
+color:#333;
+text-align:center;
+overflow-x:hidden;
+}
+
+.container{
+padding:40px 25px;
+max-width:800px;
+margin:auto;
+}
+
+.poem{
+font-size:20px;
+line-height:1.8;
+text-align:left;
+}
+
+.question{
+margin-top:60px;
+font-size:5px;
+font-weight:bold;
+color:#e91e63;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.08);
+}
+}
+
+button{
+
+padding:18px 35px;
+font-size:25px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+margin:20px;
+
+}
+
+#yes{
+
+background:#e91e63;
+color:white;
+
+}
+
+
+#no{
+    background:#777;
+    color:white;
+    transition:0.2s;
+}
+
+
+
+.heart{
+
+position:fixed;
+bottom:-20px;
+animation:float 7s linear infinite;
+}
+
+@keyframes float{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-100vh);
+}
+
+}
+
+
+#success{
+
+display:none;
+font-size:30px;
+padding:40px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="poem">
+
+
+<p>
+Do you remember <b>9th February 2025?</b>
+That's the day I told you how I felt about you.
+You told me you were scared that if we started dating,
+you might lose me, and I understood.
+</p>
+
+
+<p>
+Somehow, without forcing anything,
+you became such an important part of my life.
+
+You became the person I naturally think about
+when I imagine my future.
+
+Every dream I chase,
+every plan I make,
+every milestone I hope to reach;
+I find myself wanting you there with me.
+
+I don't picture my future without picturing you in it.
+</p>
+
+
+<p>
+And if I'm being honest,
+my feelings never faded.
+
+Not even a little.
+
+They've only grown stronger with time.
+
+Every day has made me more certain
+that you're the person I want beside me.
+</p>
+
+
+<p>
+You're one of the most beautiful parts of my life.
+
+I really hope you'll let me celebrate the next National Girlfriend's Day knowing that you're not just the woman I love...
+
+You're officially my girlfriend. 🥹❤️
+</p>
+
+
+<p>
+So it's about time I stopped assuming...
+
+and started asking properly.
+</p>
+
+
+</div>
+
+
+
+<div class="question">
+
+❤️ Will You Officially Be My Girlfriend? ❤️
+
+</div>
+
+
+<form action="https://formspree.io/f/xwvqgwlp" method="POST" id="loveForm">
+
+
+<input type="hidden" name="Answer" id="answer">
+
+
+<button type="button" id="yes" onclick="sendYes()">
+YES ❤️
+</button>
+
+
+<button type="button" id="no">
+NO 💔
+</button>
+
+
+</form>
+
+
+</div>
+
+
+
+<div id="success">
+
+<h1>🥹❤️</h1>
+
+<p>
+Processing the most important answer of my life...
+</p>
+
+</div>
+
+
+
+<script>
+
+
+/*function sendYes(){
+
+document.getElementById("answer").value =
+"YES ❤️ She officially said YES!";
+
+
+document.getElementById("loveForm").submit();
+
+
+document.body.innerHTML=`
+
+<div id="success" style="
+display:block;
+padding:50px;
+text-align:center;
+font-family:Georgia;
+">
+
+<h1 style="font-size:70px">
+❤️
+</h1>
+
+<h2>
+Processing the most important answer of my life...
+</h2>
+
+</div>
+
+`;*/
+function sendYes(){
+
+fetch("https://formspree.io/f/xwvqgwlp", {
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json",
+"Accept":"application/json"
+},
+
+body:JSON.stringify({
+
+Answer:"YES ❤️ She officially said YES!",
+
+Message:"Thank you for choosing us 🥹❤️",
+
+Date:new Date().toString()
+
+})
+
+})
+
+.then(response=>{
+
+
+document.body.innerHTML=`
+
+<div style="
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:#fff0f5;
+text-align:center;
+font-family:Georgia;
+padding:30px;
+">
+
+<h1 style="font-size:70px">
+🥹❤️
+</h1>
+
+<h2 style="
+color:#e91e63;
+font-size:40px;
+">
+
+You just made me the happiest person alive.
+
+</h2>
+
+
+<p style="
+font-size:28px;
+">
+
+Thank you for choosing us.
+
+<br><br>
+
+I promise to keep choosing you,
+loving you,
+and making beautiful memories with you.
+
+<br><br>
+
+I love you ❤️
+
+</p>
+
+</div>
+
+`;
+
+})
+
+
+.catch(error=>{
+
+alert("Something went wrong. Please try again.");
+
+});
+
+
+}
+
+/*setTimeout(()=>{
+
+document.body.innerHTML=`
+
+<div style="
+padding:50px;
+text-align:center;
+font-family:Georgia;
+">
+
+<h1 style="color:#e91e63;font-size:60px">
+🥹❤️
+</h1>
+
+<h2>
+You just made me the happiest person alive.
+</h2>
+
+<p style="font-size:25px">
+Thank you for choosing us.
+<br><br>
+I promise to keep choosing you every day.
+<br><br>
+I love you ❤️
+</p>
+
+</div>
+
+`;
+
+},3000);
+
+
+}*/
+
+
+
+
+
+/*let no=document.getElementById("no");
+
+let texts=[
+"No 💔",
+"Are you sure? 🥺",
+"Think again 😅",
+"Nice try 😂",
+"Not happening 😌"
+];
+
+
+let i=0;
+
+
+function escape(){
+
+no.style.left=Math.random()*(window.innerWidth-100)+"px";
+no.style.top=Math.random()*(window.innerHeight-80)+"px";
+
+
+i++;
+
+if(i<texts.length){
+no.innerHTML=texts[i];
+}
+
+document.getElementById("yes").style.transform=
+"scale("+(1+i*0.1)+")";
+
+
+}
+
+
+no.addEventListener("mouseover",teaseNo);
+no.addEventListener("touchstart",teaseNo);
+
+*/
+let no=document.getElementById("no");
+
+let texts=[
+"No 💔",
+"Are you sure? 🥺",
+"Think again 😅",
+"Really? 😭",
+"Choose love ❤️"
+];
+
+let i=0;
+
+
+function teaseNo(){
+
+    no.innerHTML=texts[i];
+
+    no.style.transform="rotate(8deg)";
+
+    setTimeout(()=>{
+        no.style.transform="rotate(-8deg)";
+    },100);
+
+    setTimeout(()=>{
+        no.style.transform="rotate(0deg)";
+    },200);
+
+
+    i++;
+
+    if(i>=texts.length){
+        i=0;
+    }
+
+
+    let yes=document.getElementById("yes");
+
+    let current=
+    parseFloat(
+    window.getComputedStyle(yes).fontSize
+    );
+
+    yes.style.fontSize=(current+2)+"px";
+
+}
+
+
+no.addEventListener("mouseover",teaseNo);
+no.addEventListener("touchstart",teaseNo);
+
+
+setInterval(()=>{
+
+let h=document.createElement("div");
+
+h.className="heart";
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"%";
+
+document.body.appendChild(h);
+
+
+setTimeout(()=>{
+h.remove();
+},7000);
+
+
+},800);
+
+
+</script>
+
+
+</body>
+</html>
