@@ -214,38 +214,7 @@ Processing the most important answer of my life...
 
 
 <script>
-
-
-/*function sendYes(){
-
-document.getElementById("answer").value =
-"YES ❤️ She officially said YES!";
-
-
-document.getElementById("loveForm").submit();
-
-
-document.body.innerHTML=`
-
-<div id="success" style="
-display:block;
-padding:50px;
-text-align:center;
-font-family:Georgia;
-">
-
-<h1 style="font-size:70px">
-❤️
-</h1>
-
-<h2>
-Processing the most important answer of my life...
-</h2>
-
-</div>
-
-`;*/
-    function fadeOutMusic() {
+  function fadeOutMusic() {
     let fade = setInterval(() => {
         if (music.volume > 0.02) {
             music.volume -= 0.02;
@@ -256,7 +225,7 @@ Processing the most important answer of my life...
     }, 150);
     }
 function sendYes(){
-
+fadeOutMusic();
 fetch("https://formspree.io/f/xwvqgwlp", {
 
 method:"POST",
@@ -269,7 +238,7 @@ headers:{
 body:JSON.stringify({
 
 Answer:"YES ❤️ She officially said YES!",
-    fadeOutMusic();
+    
 Message:"Thank you for choosing us 🥹❤️",
 
 Date:new Date().toString()
