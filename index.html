@@ -292,19 +292,13 @@ Processing the most important answer of my life...
     }*/
     function beginStory() {
 
-    alert("1");
-
-    document.getElementById("startScreen").style.display = "none";
-
-    alert("2");
-
-    document.getElementById("mainContent").style.display = "block";
-
-    alert("3");
-
+    // FIRST ACTION: start music while tap is still active
     startMusic();
 
-    alert("4");
+    // Then continue with the page transition
+    document.getElementById("startScreen").style.display = "none";
+
+    document.getElementById("mainContent").style.display = "block";
 
     }
   function fadeOutMusic() {
@@ -559,7 +553,7 @@ let musicStarted = false;
         musicStarted = true;
     }
 }*/
-    function startMusic() {
+    /*function startMusic() {
 
     const music = document.getElementById("bgMusic");
 
@@ -572,6 +566,21 @@ let musicStarted = false;
     .catch(error => {
         console.log("Music failed:", error);
         alert("Music error: " + error.message);
+    });
+
+    }*/
+    function startMusic() {
+
+    const music = document.getElementById("bgMusic");
+
+    music.volume = 0.25;
+
+    music.play()
+    .then(() => {
+        console.log("Music started");
+    })
+    .catch(error => {
+        console.log("Music error:", error);
     });
 
     }
