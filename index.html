@@ -99,17 +99,65 @@ padding:40px;
 
 }
 
+#startScreen{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg,#fff0f5,#ffe4ec);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    z-index:9999;
+    cursor:pointer;
+}
 
+.startContent{
+    animation:fadePulse 2s infinite;
+}
+
+.startContent h1{
+    color:#e91e63;
+    font-size:38px;
+    margin:20px 0;
+}
+
+.startContent p{
+    font-size:22px;
+    color:#555;
+}
+
+@keyframes fadePulse{
+
+50%{
+transform:scale(1.05);
+opacity:.8;
+}
+
+}
 </style>
 
 </head>
 
 
 <body>
+<div id="startScreen" onclick="beginStory()">
 
+    <div class="startContent">
 
-<div class="container">
+        ❤️
 
+        <h1>For Someone Very Special</h1>
+
+        <p>Tap anywhere to begin</p>
+
+    </div>
+
+</div>
+
+<div class="container" id="mainContent" style="display:none;">
 
 <div class="poem">
 
@@ -214,6 +262,21 @@ Processing the most important answer of my life...
 
 
 <script>
+    function beginStory(){
+
+    startMusic();
+
+    document.getElementById("startScreen").style.opacity="0";
+
+    setTimeout(()=>{
+
+        document.getElementById("startScreen").style.display="none";
+
+        document.getElementById("mainContent").style.display="block";
+
+    },800);
+
+    }
   function fadeOutMusic() {
     let fade = setInterval(() => {
         if (music.volume > 0.02) {
@@ -225,7 +288,6 @@ Processing the most important answer of my life...
     }, 150);
     }
 function sendYes(){
-fadeOutMusic();
 fetch("https://formspree.io/f/xwvqgwlp", {
 
 method:"POST",
@@ -463,7 +525,7 @@ let musicStarted = false;
 function startMusic() {
     if (!musicStarted) {
         music.volume = 0.25; // 25% volume
-        music.play().catch(err => console.log(err));
+        music.play(); //.catch(err => console.log(err));
         musicStarted = true;
     }
 }
