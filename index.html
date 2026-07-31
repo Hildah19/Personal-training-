@@ -143,7 +143,7 @@ opacity:.8;
 
 
 <body>
-    <div id="startScreen" onclick="alert('Tapped!'); beginStory();">
+    <div id="startScreen" onclick="beginStory()">
 
     <div class="startContent">
 
@@ -262,7 +262,7 @@ Processing the most important answer of my life...
 
 
 <script>
-    function beginStory(){
+    /*function beginStory(){
 
     startMusic();
 
@@ -275,6 +275,17 @@ Processing the most important answer of my life...
         document.getElementById("mainContent").style.display="block";
 
     },800);
+
+    }*/
+    function beginStory(){
+
+    alert("beginStory is running");
+
+    startMusic();
+
+    document.getElementById("startScreen").style.display = "none";
+
+    document.getElementById("mainContent").style.display = "block";
 
     }
   function fadeOutMusic() {
