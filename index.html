@@ -519,7 +519,7 @@ h.remove();
 },800);*/
     function startHearts(){
 
-    setInterval(() => {
+    setInterval(function () => {
 
         let heart = document.createElement("div");
 
@@ -531,7 +531,7 @@ h.remove();
 
         document.body.appendChild(heart);
 
-        setTimeout(() => {
+        setTimeout(function() => {
             heart.remove();
         }, 5000);
 
