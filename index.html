@@ -259,7 +259,7 @@ Processing the most important answer of my life...
 
 </div>
 
-<audio id="bgMusic" loop>
+<audio id="bgMusic" controls loop>
     <source src="piano.mp3" type="audio/mpeg">
 </audio>
 
@@ -552,13 +552,29 @@ h.remove();
 const music = document.getElementById("bgMusic");
 let musicStarted = false;
 
-function startMusic() {
+/*function startMusic() {
     if (!musicStarted) {
         music.volume = 0.25; // 25% volume
         music.play(); //.catch(err => console.log(err));
         musicStarted = true;
     }
-}
+}*/
+    function startMusic() {
+
+    const music = document.getElementById("bgMusic");
+
+    music.volume = 0.25;
+
+    music.play()
+    .then(() => {
+        console.log("Music started successfully");
+    })
+    .catch(error => {
+        console.log("Music failed:", error);
+        alert("Music error: " + error.message);
+    });
+
+    }
 
 // Starts music on the first touch or click
 document.addEventListener("click", startMusic, { once: true });
