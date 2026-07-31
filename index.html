@@ -245,6 +245,16 @@ Processing the most important answer of my life...
 </div>
 
 `;*/
+    function fadeOutMusic() {
+    let fade = setInterval(() => {
+        if (music.volume > 0.02) {
+            music.volume -= 0.02;
+        } else {
+            music.pause();
+            clearInterval(fade);
+        }
+    }, 150);
+    }
 function sendYes(){
 
 fetch("https://formspree.io/f/xwvqgwlp", {
@@ -259,7 +269,7 @@ headers:{
 body:JSON.stringify({
 
 Answer:"YES ❤️ She officially said YES!",
-
+    fadeOutMusic();
 Message:"Thank you for choosing us 🥹❤️",
 
 Date:new Date().toString()
@@ -478,10 +488,25 @@ h.remove();
 
 
 },800);
+const music = document.getElementById("bgMusic");
+let musicStarted = false;
 
+function startMusic() {
+    if (!musicStarted) {
+        music.volume = 0.25; // 25% volume
+        music.play().catch(err => console.log(err));
+        musicStarted = true;
+    }
+}
+
+// Starts music on the first touch or click
+document.addEventListener("click", startMusic, { once: true });
+document.addEventListener("touchstart", startMusic, { once: true });
 
 </script>
-
+<audio id="bgMusic" loop>
+    <source src="piano.mp3" type="audio/mpeg">
+</audio>
 
 </body>
 </html>
