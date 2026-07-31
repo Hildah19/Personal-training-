@@ -264,32 +264,6 @@ Processing the most important answer of my life...
 </audio>
 
 <script>
-    /*function beginStory(){
-
-    startMusic();
-
-    document.getElementById("startScreen").style.opacity="0";
-
-    setTimeout(()=>{
-
-        document.getElementById("startScreen").style.display="none";
-
-        document.getElementById("mainContent").style.display="block";
-
-    },800);
-
-    }*/
-    /*function beginStory(){
-
-    alert("beginStory is running");
-
-    startMusic();
-
-    document.getElementById("startScreen").style.display = "none";
-
-    document.getElementById("mainContent").style.display = "block";
-
-    }*/
     function beginStory() {
 
     // FIRST ACTION: start music while tap is still active
@@ -315,7 +289,7 @@ function sendYes(){
 fetch("https://formspree.io/f/xwvqgwlp", {
 
 method:"POST",
-
+startHearts();
 headers:{
 "Content-Type":"application/json",
 "Accept":"application/json"
@@ -525,7 +499,7 @@ no.addEventListener("mouseover",teaseNo);
 no.addEventListener("touchstart",teaseNo);
 
 
-setInterval(()=>{
+/*setInterval(()=>{
 
 let h=document.createElement("div");
 
@@ -542,33 +516,31 @@ h.remove();
 },7000);
 
 
-},800);
+},800);*/
+    function startHearts(){
+
+    setInterval(() => {
+
+        let heart = document.createElement("div");
+
+        heart.innerHTML = "❤️";
+
+        heart.className = "heart";
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+
+    }, 500);
+
+    }
 const music = document.getElementById("bgMusic");
 let musicStarted = false;
 
-/*function startMusic() {
-    if (!musicStarted) {
-        music.volume = 0.25; // 25% volume
-        music.play(); //.catch(err => console.log(err));
-        musicStarted = true;
-    }
-}*/
-    /*function startMusic() {
-
-    const music = document.getElementById("bgMusic");
-
-    music.volume = 0.25;
-
-    music.play()
-    .then(() => {
-        console.log("Music started successfully");
-    })
-    .catch(error => {
-        console.log("Music failed:", error);
-        alert("Music error: " + error.message);
-    });
-
-    }*/
     function startMusic() {
 
     const music = document.getElementById("bgMusic");
